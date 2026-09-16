@@ -1,0 +1,575 @@
+/* ================================
+   BASIC RESET
+================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f1f3f6;
+  padding-top: 205px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  z-index: 1000;
+
+  background: white;
+  color: #212121;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ================================
+   COMMON HEADER INNER
+================================ */
+
+.header-inner {
+  width: 100%;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* ================================
+   ROW 1
+================================ */
+
+.header-top {
+  height: 56px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-top .header-inner {
+  height: 56px;
+  gap: 16px;
+}
+
+
+/* Flipkart */
+
+.fk-badge {
+  height: 44px;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  background: #ffe11b;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.fk-badge__star {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Travel */
+
+.travel-badge {
+  height: 44px;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  background: #2874f0;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.travel-badge__plane {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+
+/* Location */
+
+.location {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.location__pin {
+  color: #2874f0;
+}
+
+.location__text {
+  font-weight: 600;
+}
+
+.location__cta {
+  color: #2874f0;
+  font-weight: 600;
+}
+
+.location__arrow {
+  color: #2874f0;
+  font-size: 20px;
+}
+
+
+/* ================================
+   ROW 2
+================================ */
+
+.header-main {
+  height: 64px;
+  padding: 8px 0 10px;
+
+  background: white;
+}
+
+.header-main .header-inner {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+}
+
+
+/* Search */
+
+.search {
+  width: 100%;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 16px;
+
+  background: white;
+  border: 1.5px solid #2874f0;
+  border-radius: 8px;
+}
+
+.search__icon {
+  flex-shrink: 0;
+}
+
+.search__input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: none;
+
+  font-size: 15px;
+}
+
+
+/* Actions */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  white-space: nowrap;
+}
+
+.actions__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 15px;
+}
+
+.actions__login {
+  padding: 6px 14px;
+  border: 1.5px solid #2874f0;
+  border-radius: 4px;
+  color: #2874f0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.actions__login:hover {
+  background: #f0f5ff;
+}
+
+.actions__login .actions__icon {
+  stroke: #2874f0;
+}
+
+.actions__more {
+  color: #2874f0;
+  font-weight: 600;
+}
+
+.actions__more:hover {
+  opacity: 0.85;
+}
+
+.actions__cart {
+  color: #2874f0;
+}
+
+.actions__cart .actions__icon {
+  stroke: #2874f0;
+}
+
+.actions__cart-label {
+  display: none;
+}
+
+.actions__caret {
+  font-size: 11px;
+}
+
+
+/* Cart count */
+
+.actions__count {
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #2874f0;
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+  font-weight: bold;
+}
+
+
+/* ================================
+   LOGIN DROPDOWN
+================================ */
+
+.actions__login-wrap {
+  position: relative;
+}
+
+.login-dropdown {
+  display: none;
+
+  position: absolute;
+  top: 35px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 220px;
+
+  background: white;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.16);
+
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  z-index: 2000;
+}
+
+.login-dropdown.is-open {
+  display: block;
+}
+
+.login-dropdown__cta {
+  padding: 14px 16px 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #eee;
+
+  color: #878787;
+}
+
+.login-dropdown__signup {
+  color: #2874f0;
+  font-weight: bold;
+}
+
+.login-dropdown__list a {
+  display: block;
+  padding: 9px 16px;
+}
+
+.login-dropdown__list a:hover {
+  background: #f5f5f5;
+}
+
+
+/* ================================
+   ROW 3 — CATEGORIES
+================================ */
+
+.header-cats {
+  width: 100%;
+  height: 85px;
+
+  display: block;
+
+  background: white;
+
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+
+  overflow: hidden;
+}
+
+
+/* Category horizontal row */
+
+.cat-rail {
+  width: 100%;
+  height: 85px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding: 8px 40px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+}
+
+.cat-rail::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Each category */
+
+.cat-rail li {
+  flex: 0 0 auto;
+}
+
+.cat {
+  min-width: 70px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #212121;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+
+/* Category image */
+
+.cat__icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+}
+
+.cat__icon img {
+  width: 36px;
+  height: 36px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* Category text */
+
+.cat__label {
+  display: block;
+
+  max-width: 90px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: center;
+}
+
+
+/* Active category */
+
+.cat.is-active {
+  font-weight: bold;
+}
+
+.cat.is-active .cat__icon {
+  background: #eaf2ff;
+}
+
+.cat.is-active::after {
+  content: "";
+
+  width: 100%;
+  height: 2px;
+
+  background: #2874f0;
+
+  margin-top: 2px;
+}
+
+
+/* Hover */
+
+.cat:hover {
+  color: #2874f0;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+  .header-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cat-rail {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .actions {
+    gap: 16px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 250px;
+  }
+
+  .header-main {
+    height: 105px;
+  }
+
+  .header-main .header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .location__text {
+    display: none;
+  }
+}
+
+
+@media (max-width: 560px) {
+
+  .header-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .fk-badge,
+  .travel-badge {
+    height: 38px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .cat-rail {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 14px;
+  }
+
+  .cat__icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cat__icon img {
+    width: 32px;
+    height: 32px;
+  }
+}

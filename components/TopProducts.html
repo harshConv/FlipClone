@@ -1,0 +1,192 @@
+<section class="top-products-section">
+  <h2 class="section-title">Top Deals Today</h2>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-card__img-wrap">
+        <div class="product-card__img-placeholder">📱</div>
+      </div>
+      <div class="product-card__info">
+        <h3>Redmi Note 13 Pro+</h3>
+        <div class="product-card__rating">★★★★☆ <span>(2,341)</span></div>
+        <div class="product-card__price">
+          <span class="price-now">₹29,999</span>
+          <span class="price-was">₹39,999</span>
+          <span class="price-off">25% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card__img-wrap">
+        <div class="product-card__img-placeholder">💻</div>
+      </div>
+      <div class="product-card__info">
+        <h3>Lenovo IdeaPad Slim 5</h3>
+        <div class="product-card__rating">★★★★★ <span>(1,892)</span></div>
+        <div class="product-card__price">
+          <span class="price-now">₹54,990</span>
+          <span class="price-was">₹72,000</span>
+          <span class="price-off">24% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card__img-wrap">
+        <div class="product-card__img-placeholder">📺</div>
+      </div>
+      <div class="product-card__info">
+        <h3>Sony Bravia 43" 4K Smart TV</h3>
+        <div class="product-card__rating">★★★★☆ <span>(987)</span></div>
+        <div class="product-card__price">
+          <span class="price-now">₹38,490</span>
+          <span class="price-was">₹54,900</span>
+          <span class="price-off">30% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card__img-wrap">
+        <div class="product-card__img-placeholder">🎧</div>
+      </div>
+      <div class="product-card__info">
+        <h3>Sony WH-1000XM5 Headphones</h3>
+        <div class="product-card__rating">★★★★★ <span>(3,210)</span></div>
+        <div class="product-card__price">
+          <span class="price-now">₹22,990</span>
+          <span class="price-was">₹34,990</span>
+          <span class="price-off">34% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card__img-wrap">
+        <div class="product-card__img-placeholder">👟</div>
+      </div>
+      <div class="product-card__info">
+        <h3>Nike Air Max 270 Sneakers</h3>
+        <div class="product-card__rating">★★★★☆ <span>(764)</span></div>
+        <div class="product-card__price">
+          <span class="price-now">₹7,495</span>
+          <span class="price-was">₹12,995</span>
+          <span class="price-off">42% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card__img-wrap">
+        <div class="product-card__img-placeholder">📷</div>
+      </div>
+      <div class="product-card__info">
+        <h3>Canon EOS R50 Mirrorless Camera</h3>
+        <div class="product-card__rating">★★★★★ <span>(512)</span></div>
+        <div class="product-card__price">
+          <span class="price-now">₹62,990</span>
+          <span class="price-was">₹79,995</span>
+          <span class="price-off">21% off</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .top-products-section {
+    background: #fff;
+    padding: 24px 40px 32px;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 20px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+  }
+
+  .product-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow .2s, transform .2s;
+    cursor: pointer;
+    background: #f1f3f6;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+    transform: translateY(-2px);
+  }
+
+  .product-card__img-wrap {
+    background: #f1f3f6;
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card__img-placeholder {
+    font-size: 56px;
+  }
+
+  .product-card__info {
+    padding: 12px;
+  }
+
+  .product-card__info h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-card__rating {
+    font-size: 12px;
+    color: #878787;
+    margin-bottom: 6px;
+  }
+
+  .product-card__rating span {
+    color: #aaa;
+  }
+
+  .price-now {
+    font-size: 16px;
+    font-weight: 700;
+    color: #212121;
+  }
+
+  .price-was {
+    font-size: 13px;
+    color: #878787;
+    text-decoration: line-through;
+    margin: 0 4px;
+  }
+
+  .price-off {
+    font-size: 13px;
+    color: #388e3c;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .top-products-section {
+      padding: 16px 12px 24px;
+    }
+  }
+</style>
