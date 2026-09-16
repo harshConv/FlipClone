@@ -68,8 +68,11 @@ button {
 
 .header-top {
   height: 56px;
+  max-height: 56px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
 }
 
 .header-top .header-inner {
@@ -113,18 +116,18 @@ button {
   align-items: center;
   gap: 7px;
 
-  background: #2874f0;
+  background: #b7e67e;
   border-radius: 10px;
 
   font-size: 16px;
   font-weight: 600;
   font-style: italic;
-  color: #ffffff;
+  color: #111110;
 }
 
 .travel-badge__plane {
   font-size: 20px;
-  color: #ffffff;
+  color: #1176e9;
 }
 
 
@@ -491,6 +494,86 @@ button {
 
 
 /* ================================
+   SCROLLED HEADER (COMPACT ON SCROLL)
+================================ */
+
+.header-cats {
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cat-rail {
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, gap 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Hide top row smoothly */
+.site-header.is-scrolled .header-top {
+  max-height: 0;
+  opacity: 0;
+  border-bottom: none;
+}
+
+/* Shrink category rail and hide icons to just show names */
+.site-header.is-scrolled .header-cats {
+  height: 42px;
+}
+
+.site-header.is-scrolled .cat-rail {
+  height: 42px;
+  padding: 0 40px;
+  gap: 28px;
+}
+
+.site-header.is-scrolled .cat {
+  min-width: auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  height: 42px;
+  position: relative;
+}
+
+.site-header.is-scrolled .cat__icon {
+  display: none !important;
+}
+
+.site-header.is-scrolled .cat__label {
+  max-width: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #212121;
+  white-space: nowrap;
+}
+
+.site-header.is-scrolled .cat:hover .cat__label {
+  color: #2874f0;
+}
+
+.site-header.is-scrolled .cat.is-active .cat__label {
+  color: #2874f0;
+  font-weight: 700;
+}
+
+.site-header.is-scrolled .cat.is-active::after {
+  display: none;
+}
+
+.site-header.is-scrolled .cat.is-active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #2874f0;
+  border-radius: 2px 2px 0 0;
+}
+
+
+/* ================================
    RESPONSIVE
 ================================ */
 
@@ -504,6 +587,12 @@ button {
   .cat-rail {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .site-header.is-scrolled .cat-rail {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 18px;
   }
 
   .actions {
@@ -540,6 +629,12 @@ button {
   .location__text {
     display: none;
   }
+
+  .site-header.is-scrolled .cat-rail {
+    padding-left: 14px;
+    padding-right: 14px;
+    gap: 16px;
+  }
 }
 
 
@@ -560,6 +655,12 @@ button {
   .cat-rail {
     padding-left: 12px;
     padding-right: 12px;
+    gap: 14px;
+  }
+
+  .site-header.is-scrolled .cat-rail {
+    padding-left: 10px;
+    padding-right: 10px;
     gap: 14px;
   }
 

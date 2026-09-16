@@ -88,6 +88,25 @@ function initHeader() {
 
 
   /* -------------------------------
+     SCROLL BEHAVIOR
+  -------------------------------- */
+
+  const siteHeader = document.getElementById("siteHeader");
+
+  function handleScroll() {
+    if (!siteHeader) return;
+    if (window.scrollY > 60) {
+      siteHeader.classList.add("is-scrolled");
+    } else {
+      siteHeader.classList.remove("is-scrolled");
+    }
+  }
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+
+
+  /* -------------------------------
      LOGIN DROPDOWN
   -------------------------------- */
 
