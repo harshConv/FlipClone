@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 6. Top Deals (5 Themed Containers)
   loadComponent("TopProducts", "components/TopProducts.html");
 
+  loadComponent("AdBanner3", "components/AdBanner3.html");
   // 7. Footer
   loadComponent("footer", "components/footer.html");
 });
