@@ -1,0 +1,110 @@
+/* ============================================================
+   FLIPKART CLONE - GLOBAL STYLESHEET (css/style.css)
+   Global Design Tokens, Base Resets & Shared Section Utilities
+   Each markup component has its own dedicated stylesheet in css/:
+     • components/Header.html       -> css/Header.css
+     • components/Advertise.html    -> css/Advertise.css
+     • components/AdBanner1.html    -> css/AdBanner1.css
+     • components/Products.html     -> css/Products.css
+     • components/AdBanner2.html    -> css/AdBanner2.css
+     • components/TopProducts.html  -> css/TopProducts.css
+     • components/footer.html       -> css/footer.css
+   ============================================================ */
+
+/* CSS Variables & Theme Tokens */
+:root {
+  --fk-blue: #2874f0;
+  --fk-dark-blue: #1866db;
+  --fk-yellow: #ffe11b;
+  --fk-green: #388e3c;
+  --fk-orange: #ff6161;
+  --fk-bg: #f1f3f6;
+  --fk-text: #212121;
+  --fk-muted: #878787;
+  --fk-border: #e0e0e0;
+  --fk-card-bg: #ffffff;
+}
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--fk-bg);
+  color: var(--fk-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 205px; /* Matches fixed header height */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* ============================================================
+   SHARED SECTION UTILITIES
+   ============================================================ */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fk-text);
+  margin: 0 0 4px;
+  letter-spacing: -0.2px;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: var(--fk-muted);
+  margin: 0;
+}
+
+.section-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--fk-blue);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(40, 116, 240, 0.2);
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.section-view-all:hover {
+  background: #1259cb;
+  transform: translateY(-1px);
+}

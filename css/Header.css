@@ -1,37 +1,5 @@
 /* ================================
-   BASIC RESET
-================================ */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f1f3f6;
-  padding-top: 205px;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-
-/* ================================
-   HEADER
+   SITE HEADER (css/Header.css)
 ================================ */
 
 .site-header {
@@ -372,6 +340,7 @@ button {
   border-bottom: 1px solid #e0e0e0;
 
   overflow: hidden;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -393,6 +362,7 @@ button {
   overflow-y: hidden;
 
   scrollbar-width: none;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, gap 0.3s ease;
 }
 
 .cat-rail::-webkit-scrollbar {
@@ -496,14 +466,6 @@ button {
 /* ================================
    SCROLLED HEADER (COMPACT ON SCROLL)
 ================================ */
-
-.header-cats {
-  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cat-rail {
-  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, gap 0.3s ease;
-}
 
 .site-header.is-scrolled {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);

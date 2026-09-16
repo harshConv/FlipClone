@@ -1,105 +1,31 @@
-<section class="advertise-container">
-  <div class="advertise-banner">
-    <div class="ad-content-left">
-      <h2 class="ad-title">Big Billion Days Sale</h2>
-      <p class="ad-subtitle">Up to 80% OFF on top brands &middot; Starts Oct 8th</p>
+<section class="hero-slider-section">
+  <div class="hero-slider" id="heroSlider">
+
+    <!-- Slide 1: Levi's & US Polo -->
+    <div class="hero-slide is-active">
+      <img src="images/ad1.png" alt="Big Bachat Days - Levi's & US Polo Assn 50-70% Off" loading="eager" />
     </div>
-    <div class="ad-categories">
-      <button type="button" class="ad-pill">Electronics</button>
-      <button type="button" class="ad-pill">Fashion</button>
-      <button type="button" class="ad-pill">Home</button>
-      <button type="button" class="ad-pill">Beauty</button>
+
+    <!-- Slide 2: Puma & Reebok Sports Shoes -->
+    <div class="hero-slide">
+      <img src="images/ad2.png" alt="Big Bachat Days - Puma & Reebok Sports Shoes Min 65% Off" loading="lazy" />
     </div>
+
+    <!-- Slide 3: Festivals of India -->
+    <div class="hero-slide">
+      <img src="images/ad4.png" alt="Festivals of India - Starts from 99" loading="lazy" />
+    </div>
+
+    <!-- Slider Controls -->
+    <button class="slider-btn slider-btn--prev" id="slidePrev" type="button" aria-label="Previous Slide">‹</button>
+    <button class="slider-btn slider-btn--next" id="slideNext" type="button" aria-label="Next Slide">›</button>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots" id="sliderDots">
+      <button class="slider-dot is-active" data-index="0" aria-label="Slide 1"></button>
+      <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
+    </div>
+
   </div>
 </section>
-
-<style>
-  .advertise-container {
-    background: #fff6e5;
-    padding: 14px 40px;
-    width: 100%;
-  }
-
-  .advertise-banner {
-    background: linear-gradient(90deg, #1866db 0%, #2874f0 100%);
-    border-radius: 8px;
-    padding: 22px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(40, 116, 240, 0.15);
-  }
-
-  .ad-content-left .ad-title {
-    font-size: 24px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 6px;
-    letter-spacing: -0.2px;
-  }
-
-  .ad-content-left .ad-subtitle {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.92);
-    font-weight: 400;
-  }
-
-  .ad-categories {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .ad-pill {
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    color: #ffffff;
-    border-radius: 24px;
-    padding: 7px 18px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
-    outline: none;
-  }
-
-  .ad-pill:hover {
-    background: rgba(255, 255, 255, 0.32);
-    transform: translateY(-1px);
-  }
-
-  @media (max-width: 900px) {
-    .advertise-container {
-      padding: 12px 20px;
-    }
-
-    .advertise-banner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 18px 20px;
-    }
-
-    .ad-content-left .ad-title {
-      font-size: 20px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .advertise-container {
-      padding: 10px 12px;
-    }
-
-    .ad-categories {
-      gap: 8px;
-    }
-
-    .ad-pill {
-      padding: 5px 12px;
-      font-size: 12px;
-    }
-  }
-</style>

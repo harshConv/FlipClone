@@ -7,28 +7,50 @@
   <title>Flipkart – India's Best Online Shopping Site</title>
   <meta name="description"
     content="Buy products online at best prices on Flipkart. Shop mobiles, laptops, fashion, electronics, home appliances and more." />
-  <link rel="stylesheet" href="Header.css" />
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Global Base Styles & Design Tokens -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Component Stylesheets (Divided 1:1 per markup in css/) -->
+  <link rel="stylesheet" href="css/Header.css" />
+  <link rel="stylesheet" href="css/Advertise.css" />
+  <link rel="stylesheet" href="css/AdBanner1.css" />
+  <link rel="stylesheet" href="css/Products.css" />
+  <link rel="stylesheet" href="css/AdBanner2.css" />
+  <link rel="stylesheet" href="css/TopProducts.css" />
+  <link rel="stylesheet" href="css/footer.css" />
 </head>
 
 <body>
 
-  <!-- Sticky header (loaded by JS) -->
-  <header id="Header"></header>
+  <!-- 1. Header -->
+  <div id="Header"></div>
 
-  <!-- Banner / advertise strip -->
-  <section id="Advertise"></section>
+  <!-- 2. Hero Slider Banner -->
+  <div id="SliderBanner"></div>
 
-  <!-- Top-selling products carousel -->
-  <section id="TopProducts"></section>
+  <!-- 3. Interstitial Ad 1 (Flash Sale Flights / Mobiles) -->
+  <div id="AdBanner1"></div>
 
-  <!-- Full product grid -->
-  <section id="products"></section>
+  <!-- 4. Products (Revamped Real UI) -->
+  <div id="products"></div>
 
-  <!-- Footer -->
-  <footer id="footer"></footer>
+  <!-- 5. Interstitial Ad 2 (Diwali Dhamaka / Festivals of India) -->
+  <div id="AdBanner2"></div>
 
-  <script src="script.js"></script>
+  <!-- 6. Top Deals (5 Themed Containers) -->
+  <div id="TopProducts"></div>
+
+  <!-- 7. Footer -->
+  <div id="footer"></div>
+
+  <!-- Component Scripts (Divided 1:1 per markup in js/) -->
+  <script src="js/Header.js"></script>
+  <script src="js/Advertise.js"></script>
+  <script src="js/Products.js"></script>
+
+  <!-- Master Component Orchestrator -->
+  <script src="js/script.js"></script>
 </body>
 
 </html>

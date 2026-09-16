@@ -1,0 +1,148 @@
+/* ============================================================
+   AUTHENTIC FLIPKART FOOTER (css/footer.css)
+   Modular styles for components/footer.html
+   ============================================================ */
+
+.site-footer {
+  background: #172337;
+  color: #ffffff;
+  padding: 40px 40px 24px;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 1px repeat(2, 1.3fr);
+  gap: 24px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #454d5e;
+}
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #878787;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: underline;
+  color: #71a9ff;
+}
+
+.footer-divider {
+  background: #454d5e;
+  width: 1px;
+}
+
+.footer-address p {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer-address a {
+  color: #71a9ff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom__links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-bottom__links a:hover {
+  color: #ffe11b;
+}
+
+.footer-copyright {
+  color: #b0b5c0;
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .site-footer {
+    padding: 32px 24px 20px;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr) repeat(2, 1fr);
+  }
+
+  .footer-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 24px 14px 18px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-bottom__links {
+    gap: 14px;
+  }
+}
