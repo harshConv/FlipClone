@@ -1,9 +1,10 @@
 /* ============================================================
    HERO SLIDER SCRIPT (js/Advertise.js)
-   Supports:
-     • Desktop: Centered active slide with left/right previews
-     • Mobile: 100% full-width single slide view
-     • Auto-play slider with hover pause & drag reset
+   Features:
+     • True Continuous Loop (Ring / Giant Wheel effect)
+     • Cloned side buffer slides (no empty white space ever!)
+     • Instant seamless snap transition on boundaries
+     • Desktop side-previews & Mobile 100% full-width view
      • Touch swipe on mobile & touch screens
      • Mouse drag on desktop
      • Next / Prev arrow controls & Dot pagination
@@ -14,16 +15,39 @@ function initHeroSlider() {
   if (!slider) return;
 
   const track = slider.querySelector(".hero-slider-track");
-  const slides = Array.from(slider.querySelectorAll(".hero-slide"));
+  let originalSlides = Array.from(slider.querySelectorAll(".hero-slide:not(.is-clone)"));
   const dots = slider.querySelectorAll(".slider-dot");
   const prevBtn = document.getElementById("slidePrev");
   const nextBtn = document.getElementById("slideNext");
 
-  if (!track || slides.length === 0) return;
+  if (!track || originalSlides.length === 0) return;
 
-  let currentIndex = 0;
+  const N = originalSlides.length;
+  const CLONE_COUNT = 2; // 2 clones on left, 2 clones on right
+
+  // Clean up any existing clones if re-initialized
+  track.querySelectorAll(".hero-slide.is-clone").forEach(c => c.remove());
+  originalSlides = Array.from(track.querySelectorAll(".hero-slide"));
+
+  // Clone last 2 slides to PREPEND (left buffer)
+  for (let i = N - 1; i >= N - CLONE_COUNT; i--) {
+    const clone = originalSlides[i].cloneNode(true);
+    clone.classList.add("is-clone");
+    clone.classList.remove("is-active");
+    track.insertBefore(clone, track.firstChild);
+  }
+
+  // Clone first 2 slides to APPEND (right buffer)
+  for (let i = 0; i < CLONE_COUNT; i++) {
+    const clone = originalSlides[i].cloneNode(true);
+    clone.classList.add("is-clone");
+    clone.classList.remove("is-active");
+    track.appendChild(clone);
+  }
+
+  const allSlides = Array.from(track.querySelectorAll(".hero-slide"));
+  let domIndex = CLONE_COUNT; // Starts at Real Slide 0 (DOM Index 2)
   let autoSlideTimer = null;
-  const totalSlides = slides.length;
 
   /* Touch / Drag state */
   let isDragging = false;
@@ -33,66 +57,94 @@ function initHeroSlider() {
   let animationID = 0;
 
   /* ==========================================================
-     CALCULATE TRANSLATION POSITION
+     CALCULATE TRANSLATION POSITION FOR ANY DOM INDEX
      ========================================================== */
 
-  function calculateTargetTranslate(index) {
+  function getTranslateForDomIndex(idx) {
     const isMobile = window.innerWidth <= 768;
     const sliderWidth = slider.clientWidth;
 
     if (isMobile) {
-      return -index * sliderWidth;
+      return -idx * sliderWidth;
     } else {
-      const slide = slides[0];
+      const slide = allSlides[idx] || allSlides[0];
       const slideWidth = slide ? slide.offsetWidth : sliderWidth * 0.54;
-      const gap = 16; // gap between slides on desktop
+      const gap = 16;
       const centerOffset = (sliderWidth - slideWidth) / 2;
-      return -(index * (slideWidth + gap)) + centerOffset;
+      return -(idx * (slideWidth + gap)) + centerOffset;
     }
+  }
+
+  function getRealIndex(dIdx) {
+    let r = (dIdx - CLONE_COUNT) % N;
+    if (r < 0) r += N;
+    return r;
   }
 
   /* ==========================================================
      MOVE SLIDER
      ========================================================== */
 
-  function moveSlider() {
-    currentTranslate = calculateTargetTranslate(currentIndex);
+  function moveSlider(animate = true) {
+    currentTranslate = getTranslateForDomIndex(domIndex);
     prevTranslate = currentTranslate;
 
-    track.style.transition = "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)";
+    if (animate) {
+      track.style.transition = "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)";
+    } else {
+      track.style.transition = "none";
+    }
+
     track.style.transform = `translateX(${currentTranslate}px)`;
 
-    /* Update active class on slides */
-    slides.forEach(function (slide, idx) {
-      if (idx === currentIndex) {
-        slide.classList.add("is-active");
-      } else {
-        slide.classList.remove("is-active");
-      }
+    updateActiveClasses();
+  }
+
+  function updateActiveClasses() {
+    const activeRealIdx = getRealIndex(domIndex);
+
+    // Update slides active state
+    allSlides.forEach((slide, idx) => {
+      slide.classList.toggle("is-active", idx === domIndex);
     });
 
-    /* Update active class on dots */
-    dots.forEach(function (dot, idx) {
-      if (idx === currentIndex) {
-        dot.classList.add("is-active");
-      } else {
-        dot.classList.remove("is-active");
-      }
+    // Update dots active state using real index
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("is-active", idx === activeRealIdx);
     });
   }
+
+  /* ==========================================================
+     SEAMLESS SNAP ON BOUNDARIES (transitionend)
+     ========================================================== */
+
+  track.addEventListener("transitionend", function () {
+    if (isDragging) return;
+
+    // If reached right clones (past real slides)
+    if (domIndex >= N + CLONE_COUNT) {
+      domIndex = domIndex - N; // Snap back to equivalent real slide
+      moveSlider(false); // Snap instantly with transition: none!
+    }
+    // If reached left clones (before real slide 0)
+    else if (domIndex < CLONE_COUNT) {
+      domIndex = domIndex + N; // Snap forward to equivalent real slide
+      moveSlider(false); // Snap instantly with transition: none!
+    }
+  });
 
   /* ==========================================================
      SLIDE NAVIGATION
      ========================================================== */
 
   function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    moveSlider();
+    domIndex++;
+    moveSlider(true);
   }
 
   function previousSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    moveSlider();
+    domIndex--;
+    moveSlider(true);
   }
 
   function startAutoSlide() {
@@ -127,8 +179,8 @@ function initHeroSlider() {
 
   dots.forEach(function (dot, index) {
     dot.addEventListener("click", function () {
-      currentIndex = index;
-      moveSlider();
+      domIndex = index + CLONE_COUNT;
+      moveSlider(true);
       startAutoSlide();
     });
   });
@@ -137,9 +189,9 @@ function initHeroSlider() {
   slider.addEventListener("mouseenter", stopAutoSlide);
   slider.addEventListener("mouseleave", startAutoSlide);
 
-  /* Resize listener */
+  /* Window resize handler */
   window.addEventListener("resize", function () {
-    moveSlider();
+    moveSlider(false);
   });
 
   /* ==========================================================
@@ -150,14 +202,12 @@ function initHeroSlider() {
     return event.type.includes("mouse") ? event.clientX : event.touches[0].clientX;
   }
 
-  function touchStart(index) {
-    return function (event) {
-      isDragging = true;
-      startX = getPositionX(event);
-      stopAutoSlide();
-      track.style.transition = "none"; // Fast responsive drag
-      animationID = requestAnimationFrame(animation);
-    };
+  function touchStart(event) {
+    isDragging = true;
+    startX = getPositionX(event);
+    stopAutoSlide();
+    track.style.transition = "none";
+    animationID = requestAnimationFrame(animation);
   }
 
   function touchMove(event) {
@@ -174,14 +224,13 @@ function initHeroSlider() {
 
     const movedBy = currentTranslate - prevTranslate;
 
-    // Threshold for slide change: 40px
-    if (movedBy < -40 && currentIndex < totalSlides - 1) {
-      currentIndex += 1;
-    } else if (movedBy > 40 && currentIndex > 0) {
-      currentIndex -= 1;
+    if (movedBy < -40) {
+      domIndex++;
+    } else if (movedBy > 40) {
+      domIndex--;
     }
 
-    moveSlider();
+    moveSlider(true);
     startAutoSlide();
   }
 
@@ -192,25 +241,23 @@ function initHeroSlider() {
     }
   }
 
-  /* Attach Touch events to track */
-  track.addEventListener("touchstart", touchStart(currentIndex), { passive: true });
+  /* Attach Touch & Mouse events to track */
+  track.addEventListener("touchstart", touchStart, { passive: true });
   track.addEventListener("touchmove", touchMove, { passive: true });
   track.addEventListener("touchend", touchEnd);
 
-  /* Attach Mouse Drag events to track */
-  track.addEventListener("mousedown", touchStart(currentIndex));
+  track.addEventListener("mousedown", touchStart);
   track.addEventListener("mousemove", touchMove);
   track.addEventListener("mouseup", touchEnd);
   track.addEventListener("mouseleave", function () {
     if (isDragging) touchEnd();
   });
 
-  /* Prevent drag image ghosting */
-  slides.forEach(slide => {
+  allSlides.forEach(slide => {
     slide.addEventListener("dragstart", e => e.preventDefault());
   });
 
-  /* Initialize */
-  moveSlider();
+  /* Initial position */
+  moveSlider(false);
   startAutoSlide();
 }

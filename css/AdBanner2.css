@@ -1,16 +1,16 @@
 /* ============================================================
-   INTERSTITIAL BANNER 2: FESTIVALS OF INDIA (css/AdBanner2.css)
-   Modular styles for components/AdBanner2.html
+   INTERSTITIAL BANNER 2 & 3: FESTIVALS OF INDIA (css/AdBanner2.css)
+   Sleek Wide Rectangular Proportions (Desktop & Mobile)
    ============================================================ */
 
 .festival-banner-section {
-  padding: 0 40px 16px;
+  padding: 0 24px 16px;
   width: 100%;
 }
 
 .festival-banner-card {
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   border: 1px solid #e0e0e0;
@@ -18,7 +18,7 @@
 
 .festival-banner-image-wrap {
   width: 100%;
-  height: 220px;
+  height: 170px; /* Wide rectangular shape */
   overflow: hidden;
   background: #f1f3f6;
 }
@@ -38,23 +38,23 @@
 
 .festival-banner-strip {
   background: linear-gradient(90deg, #1b3554 0%, #2874f0 100%);
-  padding: 12px 24px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   color: #ffffff;
-  flex-wrap: wrap;
 }
 
 .festival-badge {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 
 .festival-icon {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .festival-tag {
@@ -67,11 +67,10 @@
 .festival-highlights {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.95);
-  flex-wrap: wrap;
 }
 
 .festival-dot {
@@ -81,13 +80,14 @@
 .festival-cta-btn {
   background: #ffe11b;
   color: #111827;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 7px 18px;
+  padding: 6px 16px;
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .festival-cta-btn:hover {
@@ -95,28 +95,43 @@
   transform: translateY(-1px);
 }
 
-/* Responsive */
-@media (max-width: 1100px) {
+/* ============================================================
+   RESPONSIVE (Wide Rectangular Proportion)
+   ============================================================ */
+
+@media (max-width: 900px) {
   .festival-banner-section {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 16px 12px;
+  }
+
+  .festival-banner-image-wrap {
+    height: 130px;
+  }
+
+  .festival-highlights {
+    display: none; /* Keep bottom strip clean & horizontal on tablets/mobile */
   }
 }
 
 @media (max-width: 600px) {
   .festival-banner-section {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px 10px;
   }
 
   .festival-banner-image-wrap {
-    height: 140px;
+    height: 100px; /* Wide horizontal bar on mobile */
   }
 
   .festival-banner-strip {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px 14px;
+    padding: 8px 12px;
+  }
+
+  .festival-tag {
+    font-size: 11px;
+  }
+
+  .festival-cta-btn {
+    font-size: 11px;
+    padding: 4px 12px;
   }
 }
