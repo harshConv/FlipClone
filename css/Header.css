@@ -933,9 +933,9 @@ body.drawer-open {
     flex: 1;
   }
 
-  /* On mobile: collapse the header-top to just show the badge row (saves space) */
+  /* On mobile: keep the badge row compact but let the location appear below it */
   .header-top {
-    max-height: 56px;
+    max-height: none;
   }
 
   .header-top .header-inner {
@@ -944,9 +944,15 @@ body.drawer-open {
     gap: 3px;
   }
 
-  /* Hide location row on mobile — accessible from hamburger drawer */
   .header-top__location-row {
-    display: none;
+    display: flex;
+    width: 100%;
+  }
+
+  .location {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 4px 0 2px;
   }
 
   .site-header.is-scrolled .cat-rail {
