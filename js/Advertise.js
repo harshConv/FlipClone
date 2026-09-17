@@ -31,6 +31,8 @@ function initHeroSlider() {
 
   let autoSlideTimer = null;
 
+  const totalSlides = slides.length;
+
 
   /* ==========================================================
      MOVE SLIDER
@@ -40,16 +42,13 @@ function initHeroSlider() {
 
     const slide = slides[currentIndex];
 
+    if (!slide) return;
+
     const slideWidth = slide.offsetWidth;
 
     const gap = 18;
 
-    const moveAmount =
-      slideWidth + gap;
-
-
-    const trackPadding = 70;
-
+    const moveAmount = slideWidth + gap;
 
     track.style.transform =
       `translateX(-${currentIndex * moveAmount}px)`;
@@ -82,11 +81,7 @@ function initHeroSlider() {
 
   function nextSlide() {
 
-    currentIndex++;
-
-    if (currentIndex >= slides.length) {
-      currentIndex = 0;
-    }
+    currentIndex = (currentIndex + 1) % totalSlides;
 
     moveSlider();
   }
@@ -98,11 +93,7 @@ function initHeroSlider() {
 
   function previousSlide() {
 
-    currentIndex--;
-
-    if (currentIndex < 0) {
-      currentIndex = slides.length - 1;
-    }
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
 
     moveSlider();
   }
