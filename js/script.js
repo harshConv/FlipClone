@@ -45,9 +45,11 @@ function loadComponent(id, file, initCallback) {
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Header
+  // 1. Header & Header Category Rail Sub-Component
   loadComponent("Header", "components/Header.html", function () {
-    if (typeof initHeader === "function") initHeader();
+    loadComponent("HeaderCats", "components/HeaderCats.html", function () {
+      if (typeof initHeader === "function") initHeader();
+    });
   });
 
   // 2. Hero Slider Banner

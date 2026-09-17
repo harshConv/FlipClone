@@ -1,3 +1,5 @@
+@import url("./HeaderCats.css");
+
 /* ================================
    SITE HEADER (css/Header.css)
 ================================ */
@@ -31,29 +33,29 @@
 
 
 /* ================================
-   ROW 1
+   ROW 1: BADGES & LOCATION
 ================================ */
 
 .header-top {
-  max-height: 90px;
+  height: 52px;
+  max-height: 52px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, border-color 0.25s ease;
   overflow: hidden;
 }
 
-/* Stack the inner content as a column: badges row + location row */
 .header-top .header-inner {
-  height: auto;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 
-/* ── Brands sub-row (Flipkart + Travel side by side) ── */
+/* ── Brands (Flipkart + Travel) ── */
 
 .header-top__brands {
   display: flex;
@@ -62,11 +64,11 @@
 }
 
 
-/* Flipkart */
+/* Flipkart Badge */
 
 .fk-badge {
-  height: 36px;
-  padding: 0 14px;
+  height: 38px;
+  padding: 0 16px;
 
   display: flex;
   align-items: center;
@@ -76,45 +78,50 @@
   background: #ffe11b;
   border-radius: 8px;
 
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   font-style: italic;
+  color: #111;
+  text-decoration: none;
 }
 
 .fk-badge__star {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
 }
 
 
-/* Travel */
+/* Travel Badge */
 
 .travel-badge {
-  height: 36px;
-  padding: 0 14px;
+  height: 38px;
+  padding: 0 16px;
 
   display: flex;
   align-items: center;
   gap: 6px;
 
-  background: #b7e67e;
+  background: #f0f3f8;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
 
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   font-style: italic;
-  color: #111110;
+  color: #212121;
+  text-decoration: none;
 }
 
 .travel-badge__plane {
   font-size: 16px;
-  color: #1176e9;
+  color: #ff6161;
 }
 
 
-/* ── Location sub-row ── */
+/* ── Location ── */
 
 .header-top__location-row {
+  margin-left: auto;
   display: flex;
   align-items: center;
 }
@@ -122,9 +129,9 @@
 .location {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 
   background: none;
@@ -141,21 +148,20 @@
 
 .location__text {
   font-weight: 600;
-  font-size: 11px;
-  color: #444;
+  font-size: 13px;
+  color: #212121;
 }
 
 .location__cta {
   color: #2874f0;
   font-weight: 600;
-  font-size: 11px;
-  text-decoration: underline dotted;
-  text-underline-offset: 2px;
+  font-size: 13px;
+  text-decoration: none;
 }
 
 .location__arrow {
   color: #2874f0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
 }
 
@@ -581,7 +587,8 @@
 ================================ */
 
 .hamburger-btn {
-  display: none; /* hidden on desktop */
+  display: none;
+  /* hidden on desktop */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -900,59 +907,111 @@ body.drawer-open {
 
 @media (max-width: 768px) {
 
-  /* Show hamburger, hide desktop action bar */
+  /* Show hamburger button on left of search bar, hide desktop actions */
   .hamburger-btn {
     display: flex;
+    flex-shrink: 0;
   }
 
   .actions {
     display: none;
   }
 
-  /* Layout */
+  /* Body top padding to accommodate expanded mobile header */
   body {
-    padding-top: 185px;
+    padding-top: 220px;
   }
 
-  .header-main {
-    height: auto;
-    padding: 10px 0;
-  }
-
-  .header-main .header-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .search-bar-row {
-    width: 100%;
-  }
-
-  .search {
-    flex: 1;
-  }
-
-  /* On mobile: keep the badge row compact but let the location appear below it */
+  /* Header Top row expansion for mobile */
   .header-top {
+    height: auto;
     max-height: none;
+    background: #eaf2ff;
+    padding: 8px 0;
   }
 
   .header-top .header-inner {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    gap: 3px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .header-top__location-row {
-    display: flex;
+  /* Badges taking 50/50 side-by-side full width on mobile top */
+  .header-top__brands {
     width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+
+  .fk-badge,
+  .travel-badge {
+    flex: 1;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .travel-badge {
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+  }
+
+  /* Location row sitting below badges aligned left */
+  .header-top__location-row {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 2px;
   }
 
   .location {
     width: 100%;
     justify-content: flex-start;
-    padding: 4px 0 2px;
+    font-size: 13px;
+  }
+
+  .location__text {
+    font-size: 13px;
+    color: #212121;
+  }
+
+  .location__cta {
+    font-size: 13px;
+    color: #2874f0;
+    font-weight: 600;
+  }
+
+  /* Main Search Row */
+  .header-main {
+    height: auto;
+    padding: 8px 0 10px;
+  }
+
+  .header-main .header-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .search-bar-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .search {
+    flex: 1;
+    height: 44px;
+    border-radius: 10px;
   }
 
   .site-header.is-scrolled .cat-rail {
@@ -972,18 +1031,18 @@ body.drawer-open {
 
   .fk-badge,
   .travel-badge {
-    height: 30px;
+    height: 38px;
     padding: 0 10px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .fk-badge__star {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
   }
 
   .travel-badge__plane {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .cat-rail {
@@ -1008,4 +1067,3 @@ body.drawer-open {
     height: 32px;
   }
 }
-
