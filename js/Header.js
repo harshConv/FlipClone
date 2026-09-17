@@ -98,9 +98,9 @@ function initHeader() {
    ============================================================ */
 
 function initHamburger() {
-  const hamburgerBtn   = document.getElementById("hamburgerBtn");
-  const mobileDrawer   = document.getElementById("mobileDrawer");
-  const drawerOverlay  = document.getElementById("drawerOverlay");
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileDrawer = document.getElementById("mobileDrawer");
+  const drawerOverlay = document.getElementById("drawerOverlay");
   const drawerCloseBtn = document.getElementById("drawerCloseBtn");
 
   if (!hamburgerBtn || !mobileDrawer) return;
@@ -157,7 +157,7 @@ function initHamburger() {
 
   /* ── Sync cart count from main header to drawer badge ── */
   function syncCartCount() {
-    var mainCount   = document.getElementById("cartCount");
+    var mainCount = document.getElementById("cartCount");
     var drawerCount = document.getElementById("drawerCartCount");
     if (mainCount && drawerCount) {
       drawerCount.textContent = mainCount.textContent;
