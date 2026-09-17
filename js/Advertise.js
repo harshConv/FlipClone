@@ -1,275 +1,226 @@
 /* ============================================================
-   ADVERTISE / HERO SLIDER SCRIPT
+   HERO SLIDER
    ============================================================ */
 
 function initHeroSlider() {
+
   const slider = document.getElementById("heroSlider");
 
   if (!slider) return;
 
-  const slides = slider.querySelectorAll(".hero-slide");
+
+  const track = slider.querySelector(".hero-slider-track");
+
+  const slides = Array.from(
+    slider.querySelectorAll(".hero-slide")
+  );
+
   const dots = slider.querySelectorAll(".slider-dot");
 
-  const prevBtn = document.getElementById("slidePrev");
-  const nextBtn = document.getElementById("slideNext");
+  const prevBtn =
+    document.getElementById("slidePrev");
 
-  if (slides.length === 0) return;
+  const nextBtn =
+    document.getElementById("slideNext");
+
+
+  if (!track || slides.length === 0) return;
+
 
   let currentIndex = 0;
+
   let autoSlideTimer = null;
 
-  /* ----------------------------------------------------------
-     Show selected slide
-     ---------------------------------------------------------- */
 
-  function goToSlide(index) {
+  /* ==========================================================
+     MOVE SLIDER
+     ========================================================== */
 
-    // Remove active class from current slide
-    slides[currentIndex].classList.remove("is-active");
+  function moveSlider() {
 
-    if (dots[currentIndex]) {
-      dots[currentIndex].classList.remove("is-active");
-    }
+    const slide = slides[currentIndex];
 
-    // Calculate next index
-    currentIndex =
-      (index + slides.length) % slides.length;
+    const slideWidth = slide.offsetWidth;
 
-    // Show new slide
+    const gap = 18;
+
+    const moveAmount =
+      slideWidth + gap;
+
+
+    const trackPadding = 70;
+
+
+    track.style.transform =
+      `translateX(-${currentIndex * moveAmount}px)`;
+
+
+    /* Active slide */
+
+    slides.forEach(function (slide) {
+      slide.classList.remove("is-active");
+    });
+
     slides[currentIndex].classList.add("is-active");
+
+
+    /* Active dot */
+
+    dots.forEach(function (dot) {
+      dot.classList.remove("is-active");
+    });
 
     if (dots[currentIndex]) {
       dots[currentIndex].classList.add("is-active");
     }
   }
 
-  /* ----------------------------------------------------------
-     Next slide
-     ---------------------------------------------------------- */
+
+  /* ==========================================================
+     NEXT
+     ========================================================== */
 
   function nextSlide() {
-    goToSlide(currentIndex + 1);
+
+    currentIndex++;
+
+    if (currentIndex >= slides.length) {
+      currentIndex = 0;
+    }
+
+    moveSlider();
   }
 
-  /* ----------------------------------------------------------
-     Previous slide
-     ---------------------------------------------------------- */
 
-  function prevSlide() {
-    goToSlide(currentIndex - 1);
+  /* ==========================================================
+     PREVIOUS
+     ========================================================== */
+
+  function previousSlide() {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = slides.length - 1;
+    }
+
+    moveSlider();
   }
 
-  /* ----------------------------------------------------------
-     Automatic sliding
-     ---------------------------------------------------------- */
+
+  /* ==========================================================
+     AUTO SLIDE
+     ========================================================== */
 
   function startAutoSlide() {
 
     stopAutoSlide();
 
-    autoSlideTimer = setInterval(function () {
-      nextSlide();
-    }, 4500);
+    autoSlideTimer = setInterval(
+      nextSlide,
+      4500
+    );
   }
+
 
   function stopAutoSlide() {
 
-    if (autoSlideTimer !== null) {
+    if (autoSlideTimer) {
+
       clearInterval(autoSlideTimer);
+
       autoSlideTimer = null;
     }
   }
 
-  /* ----------------------------------------------------------
-     Next button
-     ---------------------------------------------------------- */
+
+  /* ==========================================================
+     NEXT BUTTON
+     ========================================================== */
 
   if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
 
-      nextSlide();
+    nextBtn.addEventListener(
+      "click",
+      function () {
 
-      startAutoSlide();
-    });
+        nextSlide();
+
+        startAutoSlide();
+      }
+    );
   }
 
-  /* ----------------------------------------------------------
-     Previous button
-     ---------------------------------------------------------- */
+
+  /* ==========================================================
+     PREVIOUS BUTTON
+     ========================================================== */
 
   if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
 
-      prevSlide();
+    prevBtn.addEventListener(
+      "click",
+      function () {
 
-      startAutoSlide();
-    });
+        previousSlide();
+
+        startAutoSlide();
+      }
+    );
   }
 
-  /* ----------------------------------------------------------
-     Dots
-     ---------------------------------------------------------- */
+
+  /* ==========================================================
+     DOTS
+     ========================================================== */
 
   dots.forEach(function (dot, index) {
 
-    dot.addEventListener("click", function () {
+    dot.addEventListener(
+      "click",
+      function () {
 
-      goToSlide(index);
+        currentIndex = index;
 
-      startAutoSlide();
-    });
+        moveSlider();
 
+        startAutoSlide();
+      }
+    );
   });
 
-  /* ----------------------------------------------------------
-     Pause when mouse is over slider
-     ---------------------------------------------------------- */
 
-  slider.addEventListener("mouseenter", function () {
-    stopAutoSlide();
-  });
+  /* ==========================================================
+     PAUSE ON HOVER
+     ========================================================== */
 
-  slider.addEventListener("mouseleave", function () {
-    startAutoSlide();
-  });
+  slider.addEventListener(
+    "mouseenter",
+    stopAutoSlide
+  );
 
-  /* Start slider */
-  startAutoSlide();
-}/* ============================================================
-   ADVERTISE / HERO SLIDER SCRIPT
-   ============================================================ */
 
-function initHeroSlider() {
-  const slider = document.getElementById("heroSlider");
+  slider.addEventListener(
+    "mouseleave",
+    startAutoSlide
+  );
 
-  if (!slider) return;
 
-  const slides = slider.querySelectorAll(".hero-slide");
-  const dots = slider.querySelectorAll(".slider-dot");
+  /* ==========================================================
+     RESPONSIVE RESIZE
+     ========================================================== */
 
-  const prevBtn = document.getElementById("slidePrev");
-  const nextBtn = document.getElementById("slideNext");
+  window.addEventListener(
+    "resize",
+    moveSlider
+  );
 
-  if (slides.length === 0) return;
 
-  let currentIndex = 0;
-  let autoSlideTimer = null;
+  /* ==========================================================
+     START
+     ========================================================== */
 
-  /* ----------------------------------------------------------
-     Show selected slide
-     ---------------------------------------------------------- */
+  moveSlider();
 
-  function goToSlide(index) {
-
-    // Remove active class from current slide
-    slides[currentIndex].classList.remove("is-active");
-
-    if (dots[currentIndex]) {
-      dots[currentIndex].classList.remove("is-active");
-    }
-
-    // Calculate next index
-    currentIndex =
-      (index + slides.length) % slides.length;
-
-    // Show new slide
-    slides[currentIndex].classList.add("is-active");
-
-    if (dots[currentIndex]) {
-      dots[currentIndex].classList.add("is-active");
-    }
-  }
-
-  /* ----------------------------------------------------------
-     Next slide
-     ---------------------------------------------------------- */
-
-  function nextSlide() {
-    goToSlide(currentIndex + 1);
-  }
-
-  /* ----------------------------------------------------------
-     Previous slide
-     ---------------------------------------------------------- */
-
-  function prevSlide() {
-    goToSlide(currentIndex - 1);
-  }
-
-  /* ----------------------------------------------------------
-     Automatic sliding
-     ---------------------------------------------------------- */
-
-  function startAutoSlide() {
-
-    stopAutoSlide();
-
-    autoSlideTimer = setInterval(function () {
-      nextSlide();
-    }, 4500);
-  }
-
-  function stopAutoSlide() {
-
-    if (autoSlideTimer !== null) {
-      clearInterval(autoSlideTimer);
-      autoSlideTimer = null;
-    }
-  }
-
-  /* ----------------------------------------------------------
-     Next button
-     ---------------------------------------------------------- */
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-
-      nextSlide();
-
-      startAutoSlide();
-    });
-  }
-
-  /* ----------------------------------------------------------
-     Previous button
-     ---------------------------------------------------------- */
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-
-      prevSlide();
-
-      startAutoSlide();
-    });
-  }
-
-  /* ----------------------------------------------------------
-     Dots
-     ---------------------------------------------------------- */
-
-  dots.forEach(function (dot, index) {
-
-    dot.addEventListener("click", function () {
-
-      goToSlide(index);
-
-      startAutoSlide();
-    });
-
-  });
-
-  /* ----------------------------------------------------------
-     Pause when mouse is over slider
-     ---------------------------------------------------------- */
-
-  slider.addEventListener("mouseenter", function () {
-    stopAutoSlide();
-  });
-
-  slider.addEventListener("mouseleave", function () {
-    startAutoSlide();
-  });
-
-  /* Start slider */
   startAutoSlide();
 }
