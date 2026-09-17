@@ -35,99 +35,128 @@
 ================================ */
 
 .header-top {
-  height: 56px;
-  max-height: 56px;
+  max-height: 90px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, border-color 0.25s ease;
   overflow: hidden;
 }
 
+/* Stack the inner content as a column: badges row + location row */
 .header-top .header-inner {
-  height: 56px;
-  gap: 16px;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+
+/* ── Brands sub-row (Flipkart + Travel side by side) ── */
+
+.header-top__brands {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 
 /* Flipkart */
 
 .fk-badge {
-  height: 44px;
-  padding: 0 18px;
+  height: 36px;
+  padding: 0 14px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 6px;
 
   background: #ffe11b;
-  border-radius: 10px;
+  border-radius: 8px;
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   font-style: italic;
 }
 
 .fk-badge__star {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
 }
 
 
 /* Travel */
 
 .travel-badge {
-  height: 44px;
-  padding: 0 18px;
+  height: 36px;
+  padding: 0 14px;
 
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 
   background: #b7e67e;
-  border-radius: 10px;
+  border-radius: 8px;
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   font-style: italic;
   color: #111110;
 }
 
 .travel-badge__plane {
-  font-size: 20px;
+  font-size: 16px;
   color: #1176e9;
 }
 
 
-/* Location */
+/* ── Location sub-row ── */
 
-.location {
-  margin-left: auto;
-
+.header-top__location-row {
   display: flex;
   align-items: center;
-  gap: 5px;
+}
 
-  font-size: 14px;
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 11px;
   white-space: nowrap;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #212121;
 }
 
 .location__pin {
   color: #2874f0;
+  flex-shrink: 0;
 }
 
 .location__text {
   font-weight: 600;
+  font-size: 11px;
+  color: #444;
 }
 
 .location__cta {
   color: #2874f0;
   font-weight: 600;
+  font-size: 11px;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
 }
 
 .location__arrow {
   color: #2874f0;
-  font-size: 20px;
+  font-size: 15px;
+  line-height: 1;
 }
 
 
@@ -882,7 +911,7 @@ body.drawer-open {
 
   /* Layout */
   body {
-    padding-top: 190px;
+    padding-top: 185px;
   }
 
   .header-main {
@@ -904,7 +933,19 @@ body.drawer-open {
     flex: 1;
   }
 
-  .location__text {
+  /* On mobile: collapse the header-top to just show the badge row (saves space) */
+  .header-top {
+    max-height: 56px;
+  }
+
+  .header-top .header-inner {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    gap: 3px;
+  }
+
+  /* Hide location row on mobile — accessible from hamburger drawer */
+  .header-top__location-row {
     display: none;
   }
 
@@ -925,9 +966,18 @@ body.drawer-open {
 
   .fk-badge,
   .travel-badge {
-    height: 38px;
-    padding: 0 12px;
-    font-size: 14px;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .fk-badge__star {
+    width: 14px;
+    height: 14px;
+  }
+
+  .travel-badge__plane {
+    font-size: 13px;
   }
 
   .cat-rail {
