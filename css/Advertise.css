@@ -22,7 +22,7 @@
 
   background: transparent;
 
-  border-radius: 16px;
+  border-radius: var(--fk-radius-xl);
   touch-action: pan-y;
   cursor: grab;
 }
@@ -66,13 +66,13 @@
 
   overflow: hidden;
 
-  border-radius: 16px;
+  border-radius: var(--fk-radius-xl);
 
-  background: #ffffff;
+  background: var(--fk-card-bg);
 
   opacity: 0.85;
 
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--fk-shadow-md);
 
   transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
 
@@ -99,7 +99,7 @@
   object-fit: cover;
   object-position: center;
 
-  border-radius: 16px;
+  border-radius: var(--fk-radius-xl);
   pointer-events: none;
   -webkit-user-drag: none;
 }
@@ -125,7 +125,7 @@
 
   background: rgba(255, 255, 255, 0.92);
 
-  color: #212121;
+  color: var(--fk-text);
 
   font-size: 28px;
   font-weight: 300;
@@ -143,9 +143,9 @@
 
 
 .slider-btn:hover {
-  background: #ffffff;
+  background: var(--fk-card-bg);
 
-  color: #2874f0;
+  color: var(--fk-blue);
 
   width: 44px;
 }
@@ -218,7 +218,7 @@
 
   border-radius: 10px;
 
-  background: #ffffff;
+  background: var(--fk-white);
 }
 
 

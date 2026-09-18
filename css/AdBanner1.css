@@ -10,7 +10,7 @@
 
 .flash-sale-banner {
   background: linear-gradient(135deg, #0f2744 0%, #1a4980 50%, #2874f0 100%);
-  border-radius: 12px;
+  border-radius: var(--fk-radius-lg);
   padding: 14px 24px;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
   position: relative;
   overflow: hidden;
   height: 120px; /* Wide rectangular shape */
-  color: #ffffff;
+  color: var(--fk-white);
 }
 
 /* Background shine decoration */
@@ -58,7 +58,7 @@
   font-size: 32px;
   font-weight: 900;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: var(--fk-white);
   text-shadow:
     2px 2px 0 #003a8c,
     -2px -2px 0 #003a8c,
@@ -73,7 +73,7 @@
 }
 
 .lightning-bolt {
-  color: #ffe11b;
+  color: var(--fk-yellow);
   font-size: 28px;
   margin: 0 -1px;
   animation: pulseBolt 1.4s infinite alternate ease-in-out;
@@ -101,14 +101,14 @@
 .flash-sale-title {
   font-size: 20px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--fk-white);
   margin: 0;
   letter-spacing: -0.2px;
 }
 
 .flash-live-badge {
   background: #ff4d4f;
-  color: #ffffff;
+  color: var(--fk-white);
   font-size: 10px;
   font-weight: 800;
   padding: 2px 8px;
@@ -134,7 +134,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #ffffff;
+  color: var(--fk-white);
   font-size: 12px;
   font-weight: 700;
   width: fit-content;
@@ -173,7 +173,7 @@
 }
 
 .indigo-badge {
-  background: #ffffff;
+  background: var(--fk-white);
   color: #001f66;
   font-size: 10px;
   font-weight: 800;

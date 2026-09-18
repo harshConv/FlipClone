@@ -9,18 +9,18 @@
 }
 
 .festival-banner-card {
-  background: #ffffff;
-  border-radius: 12px;
+  background: var(--fk-card-bg);
+  border-radius: var(--fk-radius-lg);
   overflow: hidden;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--fk-border);
 }
 
 .festival-banner-image-wrap {
   width: 100%;
   height: 170px; /* Wide rectangular shape */
   overflow: hidden;
-  background: #f1f3f6;
+  background: var(--fk-surface-muted);
 }
 
 .festival-banner-img {
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  color: #ffffff;
+  color: var(--fk-white);
 }
 
 .festival-badge {
@@ -61,7 +61,7 @@
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: #ffe11b;
+  color: var(--fk-yellow);
 }
 
 .festival-highlights {
@@ -78,8 +78,8 @@
 }
 
 .festival-cta-btn {
-  background: #ffe11b;
-  color: #111827;
+  background: var(--fk-yellow);
+  color: var(--fk-dark);
   font-size: 12px;
   font-weight: 700;
   padding: 6px 16px;
@@ -91,7 +91,7 @@
 }
 
 .festival-cta-btn:hover {
-  background: #ffffff;
+  background: var(--fk-white);
   transform: translateY(-1px);
 }
 

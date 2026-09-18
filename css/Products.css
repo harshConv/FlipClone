@@ -4,11 +4,11 @@
    ============================================================ */
 
 .products-section {
-  background: #ffffff;
+  background: var(--fk-card-bg);
   padding: 24px 40px 32px;
   margin: 0 40px 16px;
-  border-radius: 16px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border-radius: var(--fk-radius-xl);
+  box-shadow: var(--fk-shadow-sm);
 }
 
 .product-grid {
@@ -23,7 +23,7 @@
   overflow: hidden;
   transition: box-shadow 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
   cursor: pointer;
-  background: #ffffff;
+  background: var(--fk-card-bg);
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -72,7 +72,7 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: #878787;
+  color: var(--fk-muted);
   cursor: pointer;
   z-index: 2;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
@@ -96,7 +96,7 @@
 .product-card__title {
   font-size: 14px;
   font-weight: 500;
-  color: #212121;
+  color: var(--fk-text);
   margin: 0;
   display: -webkit-box;
   line-clamp: 2;
@@ -118,8 +118,8 @@
 .product-card__rating {
   font-size: 11px;
   font-weight: 700;
-  color: #ffffff;
-  background: #388e3c;
+  color: var(--fk-white);
+  background: var(--fk-green);
   padding: 2px 6px;
   border-radius: 4px;
   line-height: 1;
@@ -127,15 +127,15 @@
 
 .product-card__reviews {
   font-size: 12px;
-  color: #878787;
+  color: var(--fk-muted);
 }
 
 .product-card__assured {
   font-size: 10px;
   font-weight: 800;
   font-style: italic;
-  color: #2874f0;
-  border: 1px solid #2874f0;
+  color: var(--fk-blue);
+  border: 1px solid var(--fk-blue);
   border-radius: 3px;
   padding: 1px 4px;
   margin-left: auto;
@@ -153,24 +153,24 @@
 .price-now {
   font-size: 17px;
   font-weight: 700;
-  color: #212121;
+  color: var(--fk-text);
 }
 
 .price-was {
   font-size: 13px;
-  color: #878787;
+  color: var(--fk-muted);
   text-decoration: line-through;
 }
 
 .price-off {
   font-size: 13px;
-  color: #388e3c;
+  color: var(--fk-green);
   font-weight: 700;
 }
 
 .product-card__delivery {
   font-size: 12px;
-  color: #388e3c;
+  color: var(--fk-green);
   font-weight: 500;
 }
 

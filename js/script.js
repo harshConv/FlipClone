@@ -7,12 +7,7 @@
      • components/Products.html     -> initProductInteractions() in js/Products.js
    ============================================================ */
 
-/**
- * Load HTML component into specified mount container
- * @param {string} id - The DOM element ID to mount into
- * @param {string} file - The relative path to the HTML component file
- * @param {Function} [initCallback] - Optional callback function to initialize component
- */
+
 function loadComponent(id, file, initCallback) {
   return fetch(file)
     .then(response => {

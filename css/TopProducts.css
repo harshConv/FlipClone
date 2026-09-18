@@ -96,7 +96,7 @@
 }
 
 .deal-container__arrow:hover {
-  background: #2874f0;
+  background: var(--fk-blue);
   transform: translateX(3px) scale(1.05);
 }
 
@@ -109,7 +109,7 @@
 
 /* ── Deal Card ── */
 .deal-card {
-  background: #ffffff;
+  background: var(--fk-card-bg);
   border-radius: 12px;
   padding: 10px;
   display: flex;
@@ -161,7 +161,7 @@
 .deal-card__name {
   font-size: 14px;
   font-weight: 500;
-  color: #212121;
+  color: var(--fk-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

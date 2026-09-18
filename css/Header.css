@@ -13,7 +13,7 @@
   z-index: 1000;
 
   background: white;
-  color: #212121;
+  color: var(--fk-text);
 
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
@@ -40,7 +40,7 @@
   height: 52px;
   max-height: 52px;
   background: white;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--fk-border);
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, border-color 0.25s ease;
   overflow: hidden;
 }
@@ -75,7 +75,7 @@
   justify-content: center;
   gap: 6px;
 
-  background: #ffe11b;
+  background: var(--fk-yellow);
   border-radius: 8px;
 
   font-size: 15px;
@@ -142,7 +142,7 @@
 }
 
 .location__pin {
-  color: #2874f0;
+  color: var(--fk-blue);
   flex-shrink: 0;
 }
 
@@ -199,7 +199,7 @@
   padding: 0 16px;
 
   background: white;
-  border: 1.5px solid #2874f0;
+  border: 1.5px solid var(--fk-blue);
   border-radius: 8px;
 }
 
@@ -289,7 +289,7 @@
   align-items: center;
   justify-content: center;
 
-  background: #2874f0;
+  background: var(--fk-blue);
   color: white;
 
   border-radius: 50%;
@@ -341,7 +341,7 @@
 
   border-bottom: 1px solid #eee;
 
-  color: #878787;
+  color: var(--fk-muted);
 }
 
 .login-dropdown__signup {

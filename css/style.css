@@ -13,8 +13,10 @@
 
 /* CSS Variables & Theme Tokens */
 :root {
+  /* Brand colours */
   --fk-blue: #2874f0;
   --fk-dark-blue: #1866db;
+  --fk-blue-hover: #1259cb;
   --fk-yellow: #ffe11b;
   --fk-green: #388e3c;
   --fk-orange: #ff6161;
@@ -23,6 +25,22 @@
   --fk-muted: #878787;
   --fk-border: #e0e0e0;
   --fk-card-bg: #ffffff;
+  --fk-white: #ffffff;
+  --fk-dark: #111827;
+  --fk-footer: #172337;
+  --fk-footer-border: #454d5e;
+  --fk-footer-link: #71a9ff;
+  --fk-surface-muted: #f1f3f6;
+
+  /* Reusable component values */
+  --fk-radius-sm: 4px;
+  --fk-radius-md: 8px;
+  --fk-radius-lg: 12px;
+  --fk-radius-xl: 16px;
+  --fk-shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.05);
+  --fk-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --fk-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --fk-transition: 0.22s ease;
 }
 
 /* Base Reset */
@@ -93,11 +111,11 @@ input, select, textarea {
   align-items: center;
   gap: 4px;
   background: var(--fk-blue);
-  color: #ffffff;
+  color: var(--fk-white);
   font-size: 13px;
   font-weight: 600;
   padding: 8px 18px;
-  border-radius: 4px;
+  border-radius: var(--fk-radius-sm);
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(40, 116, 240, 0.2);
   transition: background 0.2s ease, transform 0.15s ease;
@@ -105,6 +123,6 @@ input, select, textarea {
 }
 
 .section-view-all:hover {
-  background: #1259cb;
+  background: var(--fk-blue-hover);
   transform: translateY(-1px);
 }
