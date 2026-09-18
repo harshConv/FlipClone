@@ -1,14 +1,17 @@
 <header class="site-header" id="siteHeader">
-
   <!-- ── ROW 1: Brand · Travel · Location ─────────────────────── -->
   <div class="header-top">
     <div class="header-inner">
-
       <!-- Top sub-row: badges -->
       <div class="header-top__brands">
-
-        <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false"
-          aria-controls="mobileDrawer">
+        <button
+          class="hamburger-btn"
+          id="hamburgerBtn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
           <span class="hamburger-btn__bar"></span>
           <span class="hamburger-btn__bar"></span>
           <span class="hamburger-btn__bar"></span>
@@ -16,8 +19,16 @@
 
         <!-- Flipkart badge -->
         <a href="#" class="fk-badge" aria-label="Flipkart home">
-          <svg class="fk-badge__star" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9" fill="#2874f0" />
+          <svg
+            class="fk-badge__star"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <polygon
+              points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"
+              fill="#2874f0"
+            />
           </svg>
           <span>Flipkart</span>
         </a>
@@ -27,14 +38,28 @@
           <span class="travel-badge__plane" aria-hidden="true">✈</span>
           <span>Travel</span>
         </a>
-
       </div>
 
       <!-- Bottom sub-row: Location -->
       <div class="header-top__location-row">
-        <button class="location" type="button" aria-label="Select delivery location">
-          <svg class="location__pin" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="14" height="14">
-            <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" stroke="#2874f0" stroke-width="2" />
+        <button
+          class="location"
+          type="button"
+          aria-label="Select delivery location"
+        >
+          <svg
+            class="location__pin"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            width="14"
+            height="14"
+          >
+            <path
+              d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"
+              stroke="#2874f0"
+              stroke-width="2"
+            />
             <circle cx="12" cy="9" r="2.5" stroke="#2874f0" stroke-width="2" />
           </svg>
           <span class="location__text">Location not set</span>
@@ -42,47 +67,95 @@
           <span class="location__arrow" aria-hidden="true">›</span>
         </button>
       </div>
-
     </div>
   </div>
-
 
   <!-- ── ROW 2: Search · Login · More · Cart ───────────────────── -->
   <div class="header-main">
     <div class="header-inner">
-
       <!-- Search bar + Hamburger wrapper (mobile) -->
       <div class="search-bar-row">
         <!-- Hamburger toggle (mobile only, left of search bar) -->
 
-
         <form class="search" role="search" action="#" method="get">
-          <svg class="search__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
+          <svg
+            class="search__icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            width="20"
+            height="20"
+          >
             <circle cx="11" cy="11" r="7" stroke="#2874f0" stroke-width="2" />
-            <path d="M16 16l5 5" stroke="#2874f0" stroke-width="2.2" stroke-linecap="round" />
+            <path
+              d="M16 16l5 5"
+              stroke="#2874f0"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
           </svg>
-          <input class="search__input" type="search" name="q" id="siteSearch"
-            placeholder="Search for Products, Brands and More" aria-label="Search Flipkart" autocomplete="off" />
+          <input
+            class="search__input"
+            type="search"
+            name="q"
+            id="siteSearch"
+            placeholder="Search for Products, Brands and More"
+            aria-label="Search Flipkart"
+            autocomplete="off"
+          />
         </form>
       </div>
 
       <!-- Account actions -->
       <nav class="actions" aria-label="Account actions">
-
         <!-- Login -->
         <div class="actions__login-wrap" id="loginWrap">
-          <a href="#" class="actions__item actions__login" id="loginBtn" title="Login">
-            <svg class="actions__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8" />
-              <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.8" />
-              <path d="M6.5 19c1.5-3 9.5-3 11 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <a
+            href="#"
+            class="actions__item actions__login"
+            id="loginBtn"
+            title="Login"
+          >
+            <svg
+              class="actions__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              width="20"
+              height="20"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <circle
+                cx="12"
+                cy="9"
+                r="3"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <path
+                d="M6.5 19c1.5-3 9.5-3 11 0"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
             </svg>
             <span>Login</span>
             <span class="actions__caret" aria-hidden="true">▾</span>
           </a>
 
           <!-- Login dropdown -->
-          <div class="login-dropdown" id="loginDropdown" role="menu" aria-hidden="true">
+          <div
+            class="login-dropdown"
+            id="loginDropdown"
+            role="menu"
+            aria-hidden="true"
+          >
             <div class="login-dropdown__cta">
               <span>New customer?</span>
               <a href="#" class="login-dropdown__signup">Sign Up</a>
@@ -107,16 +180,27 @@
 
         <!-- Cart -->
         <a href="#" class="actions__item actions__cart" title="Cart">
-          <svg class="actions__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="22" height="22">
-            <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor"
-              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            class="actions__icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            width="22"
+            height="22"
+          >
+            <path
+              d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
             <circle cx="9" cy="20" r="1.5" fill="currentColor" />
             <circle cx="18" cy="20" r="1.5" fill="currentColor" />
           </svg>
           <span class="actions__cart-label">Cart</span>
           <span class="actions__count" id="cartCount">0</span>
         </a>
-
       </nav>
     </div>
   </div>
@@ -128,19 +212,49 @@
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
 
   <!-- ── MOBILE DRAWER PANEL ────────────────────────────────── -->
-  <aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Navigation menu" aria-hidden="true">
-
+  <aside
+    class="mobile-drawer"
+    id="mobileDrawer"
+    role="dialog"
+    aria-label="Navigation menu"
+    aria-hidden="true"
+  >
     <!-- Drawer Header -->
     <div class="mobile-drawer__header">
       <a href="#" class="mobile-drawer__brand" aria-label="Flipkart home">
-        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" aria-hidden="true">
-          <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9" fill="#2874f0" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        >
+          <polygon
+            points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"
+            fill="#2874f0"
+          />
         </svg>
         <span>Flipkart</span>
       </a>
-      <button class="mobile-drawer__close" id="drawerCloseBtn" type="button" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+      <button
+        class="mobile-drawer__close"
+        id="drawerCloseBtn"
+        type="button"
+        aria-label="Close menu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          width="22"
+          height="22"
+          aria-hidden="true"
+        >
+          <path
+            d="M18 6L6 18M6 6l12 12"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          />
         </svg>
       </button>
     </div>
@@ -148,24 +262,68 @@
     <!-- Quick Nav: Home · Login · Cart -->
     <div class="mobile-drawer__quick-nav">
       <a href="#" class="mobile-drawer__quick-item" id="drawerHomeLink">
-        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" aria-hidden="true">
-          <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H15v-5h-6v5H4a1 1 0 0 1-1-1V10.5Z" stroke="currentColor"
-            stroke-width="1.8" stroke-linejoin="round" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        >
+          <path
+            d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H15v-5h-6v5H4a1 1 0 0 1-1-1V10.5Z"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
         </svg>
         <span>Home</span>
       </a>
       <a href="#" class="mobile-drawer__quick-item" id="drawerLoginLink">
-        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" aria-hidden="true">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8" />
-          <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.8" />
-          <path d="M6.5 19c1.5-3 9.5-3 11 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="12"
+            cy="9"
+            r="3"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            d="M6.5 19c1.5-3 9.5-3 11 0"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
         </svg>
         <span>Login</span>
       </a>
       <a href="#" class="mobile-drawer__quick-item" id="drawerCartLink">
-        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" aria-hidden="true">
-          <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        >
+          <path
+            d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
           <circle cx="9" cy="20" r="1.5" fill="currentColor" />
           <circle cx="18" cy="20" r="1.5" fill="currentColor" />
         </svg>
@@ -182,105 +340,163 @@
     <!-- Categories List -->
     <ul class="mobile-drawer__cats">
       <li>
-        <a href="#" class="mobile-drawer__cat-item is-active" data-cat="for-you">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/all.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+        <a
+          href="#"
+          class="mobile-drawer__cat-item is-active"
+          data-cat="for-you"
+        >
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/all.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>For You</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="fashion">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Fashion</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="mobiles">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/mobiles.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/mobiles.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Mobiles</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="electronics">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/electronics.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/electronics.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Electronics</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="beauty">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/beauty.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/beauty.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Beauty</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="home">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/home-final.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/home-final.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Home</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="appliances">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/tv.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/tv.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Appliances</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="toys">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/toy.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/toy.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Toys, Baby &amp; Kids</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="food">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/food.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/food.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Food &amp; Health</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="auto">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/auto-acc.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/auto-acc.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Auto Accessories</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="sports">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/sport.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/sport.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Sports &amp; Fitness</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="furniture">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/furniture.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/furniture.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Furniture</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="books">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/books.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/books.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>Books</span>
         </a>
       </li>
       <li>
         <a href="#" class="mobile-drawer__cat-item" data-cat="two-wheelers">
-          <img src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/auto-new.svg" alt=""
-            aria-hidden="true" loading="lazy" />
+          <img
+            src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/auto-new.svg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
           <span>2 Wheelers</span>
         </a>
       </li>
     </ul>
-
   </aside>
-
 </header>
